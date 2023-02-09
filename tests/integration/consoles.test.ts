@@ -1,19 +1,14 @@
 import app from '../../src/app';
 import supertest from 'supertest';
 import { cleanDB } from '../helpers';
-import { PrismaClient } from '@prisma/client';
 import { createConsole } from '../factories/consoles-factory';
 
 const api = supertest(app);
 
 beforeEach(async () => {
     await cleanDB();
-})
 
-beforeAll(() => {
-    new PrismaClient()
 })
-
 
 describe('GET /consoles', () => {
     it ('should return 200 and an array of consoles', async () => {
